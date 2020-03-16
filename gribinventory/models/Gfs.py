@@ -54,12 +54,12 @@ class Gfs(NCEPModel):
         latestRunDir = dir
 
     modelDataUrl = self.highResDataHttp + modelType + "/prod/" + latestRunDir
-    print modelDataUrl
+    print(modelDataUrl)
     content = urllib2.urlopen(modelDataUrl).read()
 
     self.latestRunDir = latestRunDir
 
-    print modelDataUrl
+    print(modelDataUrl)
 
     soup = BeautifulSoup(content, 'html.parser')
 
@@ -89,7 +89,7 @@ class Gfs(NCEPModel):
     self.runTime = latestRunDir.split('/')[0].split('.')[1]
     runFileList = self.filterFiles(runFileList)
 
-    print "Length of currently updated files: " + str(len(runFileList))
+    print("Length of currently updated files: " + str(len(runFileList)))
 
     return (latestRunDir[:-1],runFileList)
 
